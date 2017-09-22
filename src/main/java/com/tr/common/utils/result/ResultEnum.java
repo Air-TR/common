@@ -2,9 +2,8 @@ package com.tr.common.utils.result;
 
 public enum ResultEnum {
 
-    UNKNOWN_ERROR(-1, "未知错误"),
-    SUCCESS(0, "成功"),
-    FAIL(1, "失败"),
+	SUCCESS(0, "成功"),
+    FAIL(-1, "失败"),
     
     PARAMETER_NULL(2, "参数为空"),
     ;

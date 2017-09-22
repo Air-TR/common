@@ -1,0 +1,74 @@
+package com.tr.common.utils.unusual.pdf;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Map;
+
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.pdf.AcroFields;
+import com.lowagie.text.pdf.AcroFields.Item;
+import com.lowagie.text.pdf.BaseFont;
+import com.lowagie.text.pdf.PdfReader;
+import com.lowagie.text.pdf.PdfStamper;
+
+/**
+ * java根据模板填充生成PDF文件
+ * 需要导入两个本地jar包：iText-2.1.5.jar、iTextAsian-2.1.7.jar。
+ * 
+ * @author taorun
+ * @date 2017年9月18日 下午4:53:26
+ *
+ */
+
+public class PDF {
+
+	public static void main(String[] args) {
+
+		try {
+			fillTemplate();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	@SuppressWarnings("unchecked")
+	public static void fillTemplate() throws IOException, DocumentException {
+
+		PdfReader reader = new PdfReader("/Users/taorun/pdfTemplate.pdf"); // 模版文件目录
+		PdfStamper ps = new PdfStamper(reader, new FileOutputStream("/Users/taorun/fillTemplate.pdf")); // 生成的输出流
+
+		AcroFields s = ps.getAcroFields();
+
+		Map<String, Object> fieldMap = s.getFields(); // pdf表单相关信息展示
+		for (Map.Entry<String, Object> entry : fieldMap.entrySet()) {
+			String name = entry.getKey(); // name就是pdf模版中各个文本域的名字
+			Item item = (Item) entry.getValue();
+			System.out.println("[name]:" + name + ", [value]: " + item);
+		}
+
+		BaseFont bf = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", BaseFont.NOT_EMBEDDED);
+		s.addSubstitutionFont(bf); // 解决中文
+
+		s.setField("@manufactor", "青岛纺机");
+		s.setField("@model", "B168");
+		s.setField("@fibretype", "棉");
+		s.setField("@fibrevalue", "细绒棉");
+		s.setField("@spinningtype", "低支纱（32S以下）");
+		s.setField("@throughput", "中产（30~80kg/h）");
+		s.setField("@cylinderspeed", "高速（500r/min以上）");
+		s.setField("@quality", "Uster 95%");
+
+		s.setField("@pricks", "pricks");
+		s.setField("@cylinder", "cylinder");
+		s.setField("@flatclothing", "flatclothing");
+		s.setField("@tops", "tops");
+		s.setField("@astoria", "astoria");
+
+		ps.setFormFlattening(true); // 设置为true生成的PDF不可修改，false可修改
+		ps.close();
+		reader.close();
+	}
+
+}

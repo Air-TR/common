@@ -12,10 +12,6 @@ import java.util.UUID;
 
 public class ID {
 	
-	public static void main(String[] args) {
-		System.out.println(uuid());
-	}
-	
 	public static final String uuid() {
         return UUID.randomUUID().toString().replaceAll("-", "");
     }

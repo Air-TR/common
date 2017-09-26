@@ -32,7 +32,6 @@ public class PDF {
 		}
 
 	}
-
 	@SuppressWarnings("unchecked")
 	public static void fillTemplate() throws IOException, DocumentException {
 

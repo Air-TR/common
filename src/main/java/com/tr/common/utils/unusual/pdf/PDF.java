@@ -35,7 +35,7 @@ public class PDF {
 	@SuppressWarnings("unchecked")
 	public static void fillTemplate() throws IOException, DocumentException {
 
-		PdfReader reader = new PdfReader("/Users/taorun/pdfTemplate.pdf"); // 模版文件目录
+		PdfReader reader = new PdfReader("/Users/taorun/pdf-template.pdf"); // 模版文件目录
 		PdfStamper ps = new PdfStamper(reader, new FileOutputStream("/Users/taorun/fillTemplate.pdf")); // 生成的输出流
 
 		AcroFields s = ps.getAcroFields();
@@ -49,21 +49,22 @@ public class PDF {
 
 		BaseFont bf = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", BaseFont.NOT_EMBEDDED);
 		s.addSubstitutionFont(bf); // 解决中文
-
-		s.setField("@manufactor", "青岛纺机");
-		s.setField("@model", "B168");
-		s.setField("@fibretype", "棉");
-		s.setField("@fibrevalue", "细绒棉");
-		s.setField("@spinningtype", "低支纱（32S以下）");
-		s.setField("@throughput", "中产（30~80kg/h）");
-		s.setField("@cylinderspeed", "高速（500r/min以上）");
-		s.setField("@quality", "Uster 95%");
-
-		s.setField("@pricks", "pricks");
-		s.setField("@cylinder", "cylinder");
-		s.setField("@flatclothing", "flatclothing");
-		s.setField("@tops", "tops");
-		s.setField("@astoria", "astoria");
+		
+		s.setField("@condition", "厂家机型 : 青岛纺机（A186）\n\n" + "纤维类型 : 中支纱（32~60S）\n\n" + "纤维类型 : 中支纱（32~60S）\n\n"
+				+ "厂家机型 : 青岛纺机（A186）\n\n" + "纤维类型 : 中支纱（32~60S）\n\n" + "纤维类型 : 中支纱（32~60S）\n\n");
+		s.setField("@result", "结果1\n结果2\n结果3\n结果4\n结果5\n结果6\n结果7\n");
+//		s.setField("@fibretype", "棉");
+//		s.setField("@fibrevalue", "细绒棉");
+//		s.setField("@spinningtype", "低支纱（32S以下）");
+//		s.setField("@throughput", "中产（30~80kg/h）");
+//		s.setField("@cylinderspeed", "高速（500r/min以上）");
+//		s.setField("@quality", "Uster 95%");
+//
+//		s.setField("@pricks", "pricks");
+//		s.setField("@cylinder", "cylinder");
+//		s.setField("@flatclothing", "flatclothing");
+//		s.setField("@tops", "tops");
+//		s.setField("@astoria", "astoria");
 
 		ps.setFormFlattening(true); // 设置为true生成的PDF不可修改，false可修改
 		ps.close();

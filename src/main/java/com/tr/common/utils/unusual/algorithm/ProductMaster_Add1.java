@@ -10,7 +10,7 @@ import java.util.List;
  * @date 2017年9月19日 上午11:28:13
  *
  */
-public class Test2 {
+public class ProductMaster_Add1 {
 
 	public static void main(String[] args) {
 

@@ -1,4 +1,4 @@
-package com.tr.common.utils.unusual;
+//package com.tr.common.utils.jdbc;
 //package com.tr.common.utils;
 //
 //import java.io.FileNotFoundException;
@@ -9,11 +9,11 @@ package com.tr.common.utils.unusual;
 //import org.apache.commons.dbcp.BasicDataSource;
 //
 ///**
-// * 
 // * 该类用于管理数据库连接
 // * 
-// * @author TR
-// * 
+// * @author taorun
+// * @date 2017年11月14日 下午2:21:40
+// *
 // */
 //
 //public class DBUtil {
@@ -21,8 +21,10 @@ package com.tr.common.utils.unusual;
 //	// 数据库连接池
 //	private static BasicDataSource ds;
 //	
-//	static{
-//		// 初始化静态属性
+//	/**
+//	 * 初始化静态属性
+//	 */
+//	static {
 //		/**
 //		 * java.util.Properties: 用来读取.properties文件，并解析其中每一行内容，然后以key-value的形式保存在当前实例中。
 //		 */
@@ -81,6 +83,13 @@ package com.tr.common.utils.unusual;
 //	
 //	public static void main(String[] args) throws Exception {
 //		Connection conn = DBUtil.getConnection();
+////		Statement state = conn.createStatement();
+////		String sql = "select count(*) count from gcp_cloth_type_info";
+////		ResultSet rs = state.executeQuery(sql);
+////		ResultSetMetaData rsmd = rs.getMetaData(); // 获取结果集元数据
+////		rs.next();
+////		int count = rs.getInt("count");
+////		System.out.println(count);
 //		System.out.println(conn);
 //		DBUtil.closeConnection(conn);
 //	}

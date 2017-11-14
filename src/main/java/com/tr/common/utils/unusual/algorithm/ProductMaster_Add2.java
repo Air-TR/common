@@ -10,7 +10,7 @@ import java.util.List;
  * @date 2017年9月19日 上午11:28:59
  *
  */
-public class Test3 {
+public class ProductMaster_Add2 {
 
 	public static String onePat = ",";
 	public static String twoPat = "[+]";

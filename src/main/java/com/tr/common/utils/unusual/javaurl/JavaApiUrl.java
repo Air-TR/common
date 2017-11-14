@@ -22,7 +22,7 @@ public class JavaApiUrl {
     }
 	
     public static String getData(String api_url) throws IOException {
-        // 创建指定url的url对象
+        // 创建指定url的URL对象
         URL url = new URL(api_url);
         // 创建http链接对象
         HttpURLConnection con = (HttpURLConnection) url.openConnection();

@@ -34,9 +34,8 @@ public class JavaApiUrlJson {
 			String jsonText = readAll(rd);
 			JSONObject json = new JSONObject(jsonText);
 			return json;
-		} finally {
+		} finally { // 即使return了，finally 仍然执行
 			is.close();
-			// System.out.println("同时 从这里也能看出 即便return了，仍然会执行finally的！");
 		}
 	}
 

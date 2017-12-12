@@ -1,4 +1,4 @@
-package com.tr.common.utils.unusual.pdf;
+package com.tr.common.utils.unusual;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
